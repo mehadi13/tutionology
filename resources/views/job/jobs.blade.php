@@ -15,9 +15,9 @@
                     <div class="dropdown category-dropdown language-dropdown">
                         <a data-toggle="dropdown" href="#"><span class="change-text">City</span> <i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu category-change language-change">
-                            <li><a href="#">Location 1</a></li>
-                            <li><a href="#">Location 2</a></li>
-                            <li><a href="#">Location 3</a></li>
+                            @foreach($cities as $city)
+                            <li><a href="#"> {{$city->name}}</a></li>
+                            @endforeach
                         </ul>
                     </div><!-- language-dropdown -->
 
@@ -25,9 +25,9 @@
                     <div class="dropdown category-dropdown language-dropdown">
                         <a data-toggle="dropdown" href="#"><span class="change-text">Location</span> <i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu category-change language-change">
-                            <li><a href="#">Location 1</a></li>
-                            <li><a href="#">Location 2</a></li>
-                            <li><a href="#">Location 3</a></li>
+                            @foreach($locations as $location)
+                                <li><a href="#"> {{$location->name}}</a></li>
+                            @endforeach
                         </ul>
                     </div><!-- language-dropdown -->
 
@@ -35,9 +35,9 @@
                     <div class="dropdown category-dropdown language-dropdown">
                         <a data-toggle="dropdown" href="#"><span class="change-text">Category</span> <i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu category-change language-change">
-                            <li><a href="#">Location 1</a></li>
-                            <li><a href="#">Location 2</a></li>
-                            <li><a href="#">Location 3</a></li>
+                            @foreach($categories as $category)
+                                <li><a href="#"> {{$category->name}}</a></li>
+                            @endforeach
                         </ul>
                     </div><!-- language-dropdown -->
 
@@ -45,11 +45,9 @@
                     <div class="dropdown category-dropdown">
                         <a data-toggle="dropdown" href="#"><span class="change-text">Gender</span> <i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu category-change">
-                            <li><a href="#">Customer Service</a></li>
-                            <li><a href="#">Software Engineer</a></li>
-                            <li><a href="#">Program Development</a></li>
-                            <li><a href="#">Project Manager</a></li>
-                            <li><a href="#">Graphics Designer</a></li>
+                            <li><a href="#"> Any</a></li>
+                            <li><a href="#"> Male</a></li>
+                            <li><a href="#"> Female</a></li>
                         </ul>
                     </div><!-- category-change -->
 

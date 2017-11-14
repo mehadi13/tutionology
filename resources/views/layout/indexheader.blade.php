@@ -108,8 +108,12 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{url('/')}}">Home</a></li>
                 <li><a href="{{url('/jobs')}}">Job Details</a></li>
+
+                @guest
+                @else
                 <li><a href="{{url('/jobs/create')}}">Job Post</a></li>
                 <li><a href="profile.html">Profle</a></li>
+                @endguest
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects <span class="caret"></span></a>
@@ -120,6 +124,31 @@
                 </li>
                 <li><a href="{{url('/about')}}">About</a></li>
                 <li><a href="{{url('/contact')}}">Contact</a></li>
+                <!-- Authentication Links -->
+                @guest
+                <li><a href="#login" class="smooth-scroll">Login</a></li>
+                <li><a href="#login" class="smooth-scroll">Register</a></li>
+                @else
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                    @endguest
             </ul>
         </div>
         <!-- /Navbar menu -->

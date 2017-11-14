@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 
 class JobsController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +20,11 @@ class JobsController extends Controller
     public function index()
     {
         //
-        return view('job.jobs');
+        $categories = Category::all();
+        $classNames = ClassName::all();
+        $cities = City::all();
+        $locations = Location::all();
+        return view('job.jobs',compact('categories','classNames','cities','locations'));
     }
 
     /**

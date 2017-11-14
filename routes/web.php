@@ -25,9 +25,12 @@ Route::get('/contact',function (){
 });
 
 Route::resource('/jobs','JobsController');
-Route::resource('/test','TestController');
 
 
 Route::get('/profile', function () {
     return view('user.profile');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

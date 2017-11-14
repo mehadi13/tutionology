@@ -64,6 +64,7 @@
     </header>
     <!-- /Hero header -->
 
+    @guest
     <!-- Section: login form -->
     <section id="login" class="cover">
 
@@ -79,20 +80,60 @@
                                     <div class="w3table-tophead">
                                         <h2>Sign in</h2>
                                     </div>
-                                    <form action="#" method="post">
+                                    <form method="POST" action="{{ route('login') }}">
+                                        {{ csrf_field() }}
                                         <div class="fields-grid">
+
+                                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                             <div class="styled-input agile-styled-input-top">
-                                                <input type="text" name="Username" required="">
-                                                <label>Username</label>
+                                                <input id="email" type="email" class="form-control" name="email"
+                                                       value="{{ old('email') }}" required autofocus>
+
+                                                @if ($errors->has('email'))
+                                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                                @endif
+                                                <label for="email" class="col-md-4 control-label">E-Mail Address</label>
                                                 <span></span>
                                             </div>
+                                            </div>
+
+
+
+                                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                             <div class="styled-input">
-                                                <input type="Password" name="Password" required="">
+                                                <input id="password" type="password" class="form-control"
+                                                       name="password" required>
+
+                                                @if ($errors->has('password'))
+                                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                                @endif
                                                 <label>Password</label>
                                                 <span></span>
                                             </div>
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox"
+                                                                   name="remember" {{ old('remember') ? 'checked' : '' }}>
+                                                            Remember Me
+                                                        </label>
+                                                    </div>
+                                            </div>
+
+
+
                                             <a href="#">forgot password?</a>
-                                            <input type="submit" value="Sign in">
+                                            <button type="submit" class="btn btn-primary">
+                                                Login
+                                            </button>
+
                                         </div>
                                         <div class="social-grids">
                                             <div class="social-text">
@@ -116,35 +157,77 @@
                             <div class="w3table w3-agileits">
                                 <div class="w3table-cell register">
                                     <h3>Sign up</h3>
-                                    <form action="#" method="post">
+                                    <form action="{{ route('register') }}" method="POST">
+                                        {{ csrf_field() }}
+
                                         <div class="fields-grid">
-                                            <div class="styled-input agile-styled-input-top">
-                                                <input type="text" name="First name" required="">
-                                                <label>First name</label>
-                                                <span></span>
+
+                                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                                <div class="styled-input agile-styled-input-top">
+                                                    <input id="name" type="text" class="form-control" name="name"
+                                                           value="{{ old('name') }}" required autofocus>
+
+                                                    @if ($errors->has('name'))
+                                                        <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                                    @endif
+                                                    <label>Name</label>
+                                                    <span></span>
+                                                </div>
                                             </div>
-                                            <div class="styled-input">
-                                                <input type="email" name="Email" required="">
+
+
+                                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+
+                                                <div class="styled-input">
+                                                <input id="email" type="email" class="form-control" name="email"
+                                                       value="{{ old('email') }}" required>
+
+                                                @if ($errors->has('email'))
+                                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                                @endif
                                                 <label>Email</label>
                                                 <span></span>
                                             </div>
-                                            <div class="styled-input">
-                                                <input type="tel" name="Phone" required="">
-                                                <label>Phone Number</label>
-                                                <span></span>
                                             </div>
+
+
+
+                                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                             <div class="styled-input">
-                                                <input type="password" name="password" required="">
+                                                <input id="password" type="password" class="form-control"
+                                                       name="password" required>
+
+                                                @if ($errors->has('password'))
+                                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                                @endif
                                                 <label>Password</label>
                                                 <span></span>
                                             </div>
+                                            </div>
+
+
+                                            <div class="styled-input">
+                                                <input id="password-confirm" type="password" class="form-control"
+                                                       name="password_confirmation" required>
+                                                <label>Confirm Password</label>
+                                                <span></span>
+                                            </div>
+
                                             <div class="clear"></div>
                                             <label class="checkbox"><input type="checkbox" name="checkbox"
                                                                            checked><i></i>I agree to the <a
                                                         href="terms.html" target="_blank">Terms and
                                                     Conditions</a></label>
                                         </div>
-                                        <input type="submit" value="Sign up">
+                                        <button type="submit" class="btn btn-primary">
+                                            Sign Up
+                                        </button>
                                     </form>
 
                                 </div>
@@ -177,6 +260,7 @@
         </div>
     </section>
     <!-- /Section: login form -->
+    @endguest
 
     <!-- Section: trigger / watch video -->
     <section id="watch-video" class="section section-inverse section-watch-video trigger bg-fixed parallax"
