@@ -24,7 +24,8 @@ class JobsController extends Controller
         $classNames = ClassName::all();
         $cities = City::all();
         $locations = Location::all();
-        return view('job.jobs',compact('categories','classNames','cities','locations'));
+        $tutioninfos = TutionInfo::all();
+        return view('job.jobs',compact('categories','classNames','cities','locations','tutioninfos'));
     }
 
     /**
@@ -38,6 +39,7 @@ class JobsController extends Controller
         $classNames = ClassName::all();
         $cities = City::all();
         $locations = Location::all();
+
         return view('job.jobpost',compact('categories','classNames','cities','locations'));
     }
 

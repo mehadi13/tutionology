@@ -93,6 +93,10 @@
                     <div class="clear"></div>
                 </div>
 
+                <div class="form-group">
+                    <input type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}">
+                </div>
+
                 <div class="form-group w3ls-end">
                     <input type="reset" class="reset" value="Reset">
                     <input type="submit" class="register" value="Submit">

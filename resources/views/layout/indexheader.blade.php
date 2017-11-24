@@ -111,7 +111,9 @@
 
                 @guest
                 @else
+                    @if(Auth::user()->role=='tutor')
                 <li><a href="{{url('/jobs/create')}}">Job Post</a></li>
+                    @endif
                 <li><a href="profile.html">Profle</a></li>
                 @endguest
 

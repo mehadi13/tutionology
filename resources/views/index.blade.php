@@ -80,53 +80,54 @@
                                     <div class="w3table-tophead">
                                         <h2>Sign in</h2>
                                     </div>
+
                                     <form method="POST" action="{{ route('login') }}">
                                         {{ csrf_field() }}
+
                                         <div class="fields-grid">
 
                                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                            <div class="styled-input agile-styled-input-top">
-                                                <input id="email" type="email" class="form-control" name="email"
-                                                       value="{{ old('email') }}" required autofocus>
+                                                <div class="styled-input agile-styled-input-top">
+                                                    <input id="email" type="email" class="form-control" name="email"
+                                                           value="{{ old('email') }}" required autofocus>
 
-                                                @if ($errors->has('email'))
-                                                    <span class="help-block">
+                                                    @if ($errors->has('email'))
+                                                        <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
-                                                @endif
-                                                <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-                                                <span></span>
+                                                    @endif
+                                                    <label for="email" class="col-md-4 control-label">E-Mail
+                                                        Address</label>
+                                                    <span></span>
+                                                </div>
                                             </div>
-                                            </div>
-
 
 
                                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                            <div class="styled-input">
-                                                <input id="password" type="password" class="form-control"
-                                                       name="password" required>
+                                                <div class="styled-input">
+                                                    <input id="password" type="password" class="form-control"
+                                                           name="password" required>
 
-                                                @if ($errors->has('password'))
-                                                    <span class="help-block">
+                                                    @if ($errors->has('password'))
+                                                        <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
-                                                @endif
-                                                <label>Password</label>
-                                                <span></span>
-                                            </div>
+                                                    @endif
+                                                    <label>Password</label>
+                                                    <span></span>
+                                                </div>
                                             </div>
 
 
                                             <div class="form-group">
-                                                    <div class="checkbox">
-                                                        <label>
-                                                            <input type="checkbox"
-                                                                   name="remember" {{ old('remember') ? 'checked' : '' }}>
-                                                            Remember Me
-                                                        </label>
-                                                    </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"
+                                                               name="remember" {{ old('remember') ? 'checked' : '' }}>
+                                                        Remember Me
+                                                    </label>
+                                                </div>
                                             </div>
-
 
 
                                             <a href="#">forgot password?</a>
@@ -181,34 +182,33 @@
                                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 
                                                 <div class="styled-input">
-                                                <input id="email" type="email" class="form-control" name="email"
-                                                       value="{{ old('email') }}" required>
+                                                    <input id="email" type="email" class="form-control" name="email"
+                                                           value="{{ old('email') }}" required>
 
-                                                @if ($errors->has('email'))
-                                                    <span class="help-block">
+                                                    @if ($errors->has('email'))
+                                                        <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
-                                                @endif
-                                                <label>Email</label>
-                                                <span></span>
+                                                    @endif
+                                                    <label>Email</label>
+                                                    <span></span>
+                                                </div>
                                             </div>
-                                            </div>
-
 
 
                                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                            <div class="styled-input">
-                                                <input id="password" type="password" class="form-control"
-                                                       name="password" required>
+                                                <div class="styled-input">
+                                                    <input id="password" type="password" class="form-control"
+                                                           name="password" required>
 
-                                                @if ($errors->has('password'))
-                                                    <span class="help-block">
+                                                    @if ($errors->has('password'))
+                                                        <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
-                                                @endif
-                                                <label>Password</label>
-                                                <span></span>
-                                            </div>
+                                                    @endif
+                                                    <label>Password</label>
+                                                    <span></span>
+                                                </div>
                                             </div>
 
 
@@ -218,6 +218,14 @@
                                                 <label>Confirm Password</label>
                                                 <span></span>
                                             </div>
+
+                                            <div class="styled-input">
+                                                <input type="radio" name="role" value="tutor">Tutor
+                                                <input type="radio" name="role" value="parent">Parent
+                                                <label>Role</label>
+                                                <span></span>
+                                            </div>
+
 
                                             <div class="clear"></div>
                                             <label class="checkbox"><input type="checkbox" name="checkbox"

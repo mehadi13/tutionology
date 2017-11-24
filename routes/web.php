@@ -34,3 +34,11 @@ Route::get('/profile', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/*asaj test*/
+Route::get('ajax',function(){
+    return view('message');
+});
+Route::post('/getmsg','AjaxController@index');
+
+

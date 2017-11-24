@@ -15,6 +15,7 @@ class CreateTutionInfosTable extends Migration
     {
         Schema::create('tution_infos', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
             $table->integer('city_id');
             $table->integer('location_id');
             $table->integer('class_name_id');
